@@ -1,5 +1,35 @@
 $(document).ready(function(){
   window.dancers = [];
+  $('.lineup').click(function(e){
+    window.dancers.forEach(function(dancer){
+      dancer.$node.css('left', '0')
+    }) 
+  });
+
+  $(window).on('keyup', function(e){
+    if(e.keyCode === 32){
+      setInterval(function(){
+        $('.Dancer').css('border', '10px solid ' + randomColor())
+      }, 100)
+      $('.addDancerButton').trigger('click')
+    }
+  })
+
+  function randomColor(){
+    return '#' + Math.floor(Math.random() * 16777215).toString(16)
+  }
+
+
+  // $(window).on('keyup', function(e){
+  //   if(e.keyCode === 32){
+     
+  //   }
+  // })
+
+  function randomColor(){
+    return '#' + Math.floor(Math.random() * 16777215).toString(16)
+  }
+
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -22,12 +52,13 @@ $(document).ready(function(){
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+    var dancer = new dancerMakerFunction(
+      $("body").height() * Math.random() *.30 + ($('body').height() * .30), 
+      $("body").width() * Math.random() *.75,
       Math.random() * 1000
     );
+    console.log(dancer.$node.width())
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 });
-

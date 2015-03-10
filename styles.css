@@ -1,10 +1,17 @@
-body, html{
+html{
   height:100%;
 }
 body{
   margin: 0px;
-  background-color:#444;
+  height: 100%;
+  width: 100%;
+  /*background-color:#444;*/
   font-size: 18px;
+  overflow: hidden;
+  background-image: url("Dancefloor.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+ } 
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -20,8 +27,21 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
+.blinkyDancer{
+  border:10px solid pink;
   border-radius:10px;
   position:absolute;
+}
+
+.Dancer{
+  position: absolute;
+}
+
+.lineup {
+  float: right;
+  padding:5px 12px;
+} 
+
+.dancefloor {
+  position:fixed;
 }
