@@ -6,25 +6,29 @@ $(document).ready(function(){
     }) 
   });
 
-  $(window).on('keyup', function(e){
-    if(e.keyCode === 32){
-      setInterval(function(){
-        $('.Dancer').css('border', '10px solid ' + randomColor())
-      }, 100)
-      $('.addDancerButton').trigger('click')
-    }
-  })
+  // $(window).on('keyup', function(e){
+    // if(e.keyCode === 32){
+      // setInterval(function(){
+      //   $('.Dancer').css('border', '10px solid ' + randomColor())
+      // }, 100)
+      // $('.addDancerButton').trigger('click')
+    // }
+  // })
 
   function randomColor(){
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
   }
 
 
-  // $(window).on('keyup', function(e){
-  //   if(e.keyCode === 32){
-     
-  //   }
-  // })
+  setTimeout(function(){
+    setInterval(function(){
+      $('.Dancer').css('border', '10px solid ' + randomColor())
+    }, 100)
+    $('.addDancerButton').trigger('click')
+
+    $('.butterfly').css('display', 'inline')
+  } , 15000)
+
 
   function randomColor(){
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
@@ -54,7 +58,7 @@ $(document).ready(function(){
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random() *.30 + ($('body').height() * .30), 
-      $("body").width() * Math.random() *.75,
+      $("body").width() * Math.random() *.75 + ($('body').width() * .15), 
       Math.random() * 1000
     );
     console.log(dancer.$node.width())
